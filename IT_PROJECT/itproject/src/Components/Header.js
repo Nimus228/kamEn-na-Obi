@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
-import { Navbar, Nav, FormControl,Container,Form,Button } from 'react-bootstrap'
-import logo from './logo192.png'
+import React, { Component } from 'react';
+import { Navbar, Nav, FormControl, Container, Form, Button } from 'react-bootstrap';
+import logo from './logo192.png';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from '../Pages/Home.js';
+import About from '../Pages/About.js';
 
 export default class Header extends Component {
     render() {
         return (
-            <>
+           
+            <div>
+
             <Navbar fixed="top" collapseOnSelect expend="sm" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="/">
@@ -38,10 +43,21 @@ export default class Header extends Component {
 
                             
                     </Navbar.Collapse>
-                </Container>
+                    </Container>
+                   
 
-            </Navbar>
-            </>
+                </Navbar>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+
+                    </Routes>
+                </BrowserRouter>
+
+               
+            </div>
+
             )
     }
 }
